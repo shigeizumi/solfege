@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>what is this sound</title>
+    <script>
+        var list=["do","re","mi","fa","so","ra","shi"];
+        function load(){
+            var dice=Math.floor(Math.random()*7);
+            var sound=document.getElementById("sound");
+            sound.src="./sound/"+list[dice]+".mp3";
+            
+            
+        }
+
+        function picture(){
+            const picture=document.getElementById("picture");
+            for(var i=0;i<list.length;i++){
+                var text="<img src=\"./picture/"+list[i]+".png\" onclick=\"result(this)\">";
+                picture.insertAdjacentHTML("beforeend",text);
+            }
+            load()
+        }
+
+        function result(result){
+            var answer=(result.src).toString().replace(/.*?picture\//,"").replace(".png","");
+            var problem=(document.getElementById("sound").src).toString().replace(/.*?sound\//,"").replace(".mp3","");
+            if(answer==problem){ 
+                alert("正解");
+                load();
+            }
+            else alert("不正解");
+        }
+    </script>
+</head>
+<body onload="picture()">
+    <audio id="sound" controls preload="auto">test</audio>
+
+    <div id="picture"></div>
+</body>
+</html>
