@@ -6,18 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>what-sound</title>
     <style>
-        #body{
+        #violin{
             user-drag: none;
             -webkit-user-drag: none;
 	        -moz-user-select: none;
             -webkit-touch-callout:none;
             -webkit-user-select:none;
+            pointer-events: none;
         }
     </style>
     <script>
         const music=new Audio();
-        function play(sound){
-            music.src="./sound/G/"+sound+".mp3";
+        function play(data){
+            const y=Number(data.coords.split(/,/)[1]);
+            if(360<y&&y<375) var line="G";
+            music.src="./sound/"+line+"/"+data.id+".mp3";
+            music.preload="auto";
             music.play();
         }
         function stop(){
@@ -26,12 +30,16 @@
         }
     </script>
 </head>
-<body id="body" onmouseup="stop()">
+<body onmouseup="stop()">
     <map name="violin">
-        <area id="Gis" shape="circle" coords="253,372,25" onmousedown="play(id)">
-        <area id="A" shape="circle" coords="425,370,25" onmousedown="play(id)">
-        <area id="B" shape="circle" coords="545,370,25" onmousedown="play(id)">
+        <area id="Gis" shape="circle" coords="253,372,25" onmousedown="play(this)">
+        <area id="A" shape="circle" coords="425,370,25" onmousedown="play(this)">
+        <area id="B" shape="circle" coords="545,370,25" onmousedown="play(this)">
+        <area id="H" shape="circle" coords="653,365,25" onmousedown="play(this)">
+        <area id="C" shape="circle" coords="756,365,35" onmousedown="play(this)">
+        <area id="Cis" shape="circle" coords="875,362,25" onmousedown="play(this)">
+        <area id="D" shape="circle" coords="990,363,25" onmousedown="play(this)">
     </map>
-    <img usemap="#violin" src="./picture/violon.png">
+    <img id="violin" usemap="#violin" src="./picture/violon.png">
 </body>
 </html>
