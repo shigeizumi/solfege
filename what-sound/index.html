@@ -19,10 +19,11 @@
     <script>
         const music=new Audio();
         function play(data){
+            console.log("play");
             const y=Number(data.coords.split(/,/)[1]);
             if(360<y&&y<375) var line="G";
             music.src="./sound/"+line+"/"+data.id+".mp3";
-            music.preload="auto";
+		console.log(music.src)
             music.play();
         }
         function stop(){
@@ -31,7 +32,7 @@
         }
     </script>
 </head>
-<body onmouseup="stop()" ontouchend="stop()">
+<body onmouseup="stop()" ontouchend="stop()" ontouchcancel="stop()">
     <map name="test">
         <area id="Gis" shape="circle" coords="253,372,25" onmousedown="play(this)" ontouchstart="play(this)">
         <area id="A" shape="circle" coords="425,370,25" onmousedown="play(this)" ontouchstart="play(this)">
