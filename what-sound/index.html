@@ -14,6 +14,7 @@
             -webkit-user-select:none;
             pointer-events: none;
         }
+        body{user-select: none;}
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/eruda/1.4.3/eruda.min.js"></script>
     <script>
@@ -25,12 +26,10 @@
             music.src="./sound/"+line+"/"+data.id+".mp3";
             music.preload="auto";
             music.play();
-		console.log("ok");
         }
         function stop(){
             music.pause()
             music.src=""
-		console.log("finish");
         }
     </script>
 </head>
