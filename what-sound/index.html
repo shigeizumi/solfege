@@ -4,50 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>what-sound</title>
     <style>
-        #violin{
+        #body{
             user-drag: none;
             -webkit-user-drag: none;
-	    -moz-user-select: none;
-		-webkit-touch-callout:none;
-		-webkit-user-select:none;
+	        -moz-user-select: none;
+            -webkit-touch-callout:none;
+            -webkit-user-select:none;
         }
     </style>
     <script>
-    var music=new Audio();
-    function getposition(event){
-        const pic=document.getElementById("click_area");
-        var click_x = event.pageX ;
-        var click_y = event.pageY ;
-
-        // 要素の位置を取得
-        var client_rect = pic.getBoundingClientRect() ;
-        var position_x = client_rect.left + window.pageXOffset ;
-        var position_y = client_rect.top + window.pageYOffset ;
-
-        // 要素内におけるクリック位置を計算
-        var x = click_x - position_x ;
-        var y = click_y - position_y ;
-        console.log(x,y)
-        playsound(x,y)
-    }
-
-    function playsound(x,y){
-        if(350<y&&y<390&&225<x&&x<280) music.src="./sound/G/gis.mp3";
-        if(340<y&&y<395&&405<x&&x<450) music.src="./sound/G/a.mp3";
-        music.play();
-    }
-
-    function finish(){
-        music.pause()
-        music.src=""
-    }
+        const music=new Audio();
+        function play(sound){
+            music.src="./sound/G/"+sound+".mp3";
+            music.play();
+        }
+        function stop(){
+            music.pause()
+            music.src=""
+        }
     </script>
 </head>
-<body>
-    <div id="click_area" onmousedown="getposition(event)" onmouseup="finish()">
-        <img id="violin" src="./picture/violon.png">
-    </div>
+<body id="body" onmouseup="stop()">
+    <map name="violin">
+        <area id="Gis" shape="circle" coords="253,372,25" onmousedown="play(id)">
+        <area id="A" shape="circle" coords="425,370,25" onmousedown="play(id)">
+        <area id="B" shape="circle" coords="545,370,25" onmousedown="play(id)">
+    </map>
+    <img usemap="#violin" src="./picture/violon.png">
 </body>
 </html>
