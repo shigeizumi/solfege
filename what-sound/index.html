@@ -15,7 +15,9 @@
             pointer-events: none;
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/eruda/1.4.3/eruda.min.js"></script>
     <script>
+        eruda.init();
         const music=new Audio();
         function play(data){
             const y=Number(data.coords.split(/,/)[1]);
