@@ -6,17 +6,15 @@
     z-index: 0;
 }
 #onpu{
-    display: flex;
+	display: flex;
     justify-content:center;
     height: 15ch;
     width: 70ch;
-    top: 5px;
-    left: 10%;
     background-image: url("./line.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
 img{
-    margin-top: 1ch;
+    margin-top: 10px;
     margin-left: 20px;
 }
