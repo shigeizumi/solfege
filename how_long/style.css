@@ -1,0 +1,20 @@
+#line{
+    position: absolute;
+    display: inline-block;
+    top:5px;
+    left: 0px;
+    z-index: 0;
+}
+#onpu{
+	display: flex;
+    justify-content:center;
+    height: 10ch;
+    width: 63ch;
+    top: 5px;
+    left: 10%;
+    background-image: url("./line.png");
+    background-repeat: no-repeat;
+}
+img{
+    margin-left: 20px;
+}
