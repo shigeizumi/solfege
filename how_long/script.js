@@ -3,6 +3,7 @@ function make_problem(){
     let position=0;
     let long=[1,2,2,4,4,8];
     let problem=[];
+    let one=0;
     for(let t=0;t<2;t++){
         while(position<8+8*t){
             let num=Math.floor(Math.random()*long.length);
@@ -16,9 +17,10 @@ function make_problem(){
                 position+=long[num];
             }
         }
+        
         //8分音符が連続していたらティティにする
         //確率で４分音符を４分休符にする
-        for(let i=0;i<problem.length;i++){
+        for(let i=one;i<problem.length;i++){
             if(problem[i]==2&&problem[i+1]==2){
                 problem=problem.filter((element,index)=>index!=i);
                 problem[i]=22;
@@ -29,6 +31,7 @@ function make_problem(){
                 if(dice==0) problem[i]="4_1";
             }
         }
+        one=problem.length;
     }
     
     //１箇所を空欄にする
