@@ -4,11 +4,12 @@ function make_problem(){
     let long=[1,2,2,4,4,8];
     let problem=[];
     let one=0;
-    for(let t=0;t<2;t++){
-        while(position<8+8*t){
+    const notches=4;
+    for(let t=0;t<16/notches;t++){
+        while(position<16/notches*(1+t)){
             let num=Math.floor(Math.random()*long.length);
-            if(position+long[num]>8+8*t){
-                let number=parseInt(Number((8+8*t-position).toString(2).replace(/1/g,"0").replace(/^0/,"1")),2) ;
+            if(position+long[num]>16/notches*(1+t)){
+                let number=parseInt(Number((16/notches*(1+t)-position).toString(2).replace(/1/g,"0").replace(/^0/,"1")),2) ;
                 problem.push(number);
                 position+=number;
             }
